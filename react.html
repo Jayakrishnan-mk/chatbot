@@ -16,18 +16,30 @@
 
     <script type="text/babel">
 
-        function App () {
+        function LoginForm() {
             return (
                 <>
-                    <p>Hello, welcome to my website</p>
                     <div>
-                        <input placeholder="Email" /></div>
-                    <div><input type="Password" placeholder="Password" /></div>
+                        <input placeholder="Email" />
+                    </div>
+                    <div>
+                        <input type="Password" placeholder="Password" />
+                    </div>
                     <button>Login</button>
                     <button>Sign up</button>
                 </>
             );
         }
+
+        function App () {
+            return (
+                <>
+                    <p>Hello, welcome to my website</p>
+                    <LoginForm />
+                </>
+            );
+        }
+
       const container = document.querySelector('.js-container');
       ReactDOM.createRoot(container).render(<App />);
     </script>
