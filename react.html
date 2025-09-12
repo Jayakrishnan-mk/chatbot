@@ -16,12 +16,31 @@
 
     <script type="text/babel">
 
+        function ProductDetails ({name, price}) {
+            return (
+                <>
+                    <p>{name}</p>
+                    <p>Price: ${price}</p>
+                    <button>Add to Cart</button>
+                </>
+            );
+       }
+
        function App () {
         return (
             <>
-                <p>Cotton socks</p>
-                <p>Price: $10.90</p>
-                <button>Add to Cart</button>
+                <ProductDetails 
+                    name="Cotton socks" 
+                    price="10.90" 
+                />
+                <ProductDetails 
+                    name="Tennis balls" 
+                    price="6.00" 
+                />
+                <ProductDetails 
+                    name="Plain T-Shirt" 
+                    price="7.99" 
+                />
             </>
         );
        }
