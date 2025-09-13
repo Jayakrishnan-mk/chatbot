@@ -17,9 +17,17 @@
 
         function App() {
             const [saveInput, setSaveInput] = React.useState('');
-            
+
             function saveInputText(event) {
                 setSaveInput(event.target.value);
+            }
+
+            function resetInput() {
+                setSaveInput('');
+            }
+
+            function exampleBtn() {
+                setSaveInput('Alice')
             }
 
             return (
@@ -27,8 +35,16 @@
                     <input
                         placeholder="Type a name here"
                         onChange={saveInputText}
-                        // value={saveInput}
+                        value={saveInput}
                     />
+                    <button
+                        onClick={resetInput} >
+                        Reset
+                    </button>
+                    <button
+                        onClick={exampleBtn} >
+                        Example
+                    </button>
                     <p>Hello {saveInput}</p>
                 </>
             );
