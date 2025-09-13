@@ -15,20 +15,26 @@
 
     <script type="text/babel">
 
-        function App() {
-
+        function Counter() {
             const [count, setCount] = React.useState(0);
 
             let increaseCount = () => {
                 setCount(count + 1);
             }
-           
+
+            return (
+                <button
+                    onClick={increaseCount}
+                // value={count}
+                >Clicked {count} {count === 1 ? 'time' : 'times'}</button>
+            );
+        }
+
+        function App() {
             return (
                 <>
-                    <button
-                        onClick={increaseCount}
-                    // value={count}
-                    >Clicked {count} {count === 1 ? 'time' : 'times'}</button>
+                    <Counter />
+                    <Counter />
                 </>
             );
         }
