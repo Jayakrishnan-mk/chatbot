@@ -36,9 +36,9 @@
                 ];
 
                 setChatMessages(newChatMessages);
-                
+
                 const response = Chatbot.getResponse(inputText);
-                
+
                 setChatMessages([
                     ...newChatMessages,
                     {
@@ -51,6 +51,12 @@
                 setInputText('');
             }
 
+            function enterKeyFn(event) {
+                if (event.key === 'Enter') {
+                    sendMessage();
+                }
+            }
+
             return (
                 <>
                     <input
@@ -58,6 +64,7 @@
                         size="30"
                         onChange={saveInputText}
                         value={inputText}
+                        onKeyDown={enterKeyFn}
                     />
                     <button
                         onClick={sendMessage}
