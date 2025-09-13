@@ -25,7 +25,6 @@
             }
 
             async function sendMessage() {
-
                 const newChatMessages = [
                     ...chatMessages,
                     {
@@ -36,6 +35,17 @@
                 ];
 
                 setChatMessages(newChatMessages);
+
+                setInputText('');
+
+                setChatMessages([
+                    ...newChatMessages,
+                    {
+                        message: 'Loading...',
+                        sender: 'robot',
+                        id: crypto.randomUUID()
+                    }
+                ]);
 
                 const response = await Chatbot.getResponseAsync(inputText);
 
@@ -48,7 +58,6 @@
                     }
                 ]);
 
-                setInputText('');
             }
 
             function enterKeyFn(event) {
