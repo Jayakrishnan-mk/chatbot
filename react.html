@@ -4,27 +4,30 @@
 <head>
     <title>React Basics</title>
     <style>
-        .on-button {
-            background-color: rgb(25, 135, 84);
-            color: white;
-            border-radius: 6px;
+        .login-button {
+            background-color: rgb(0, 123, 255);
             border: none;
-            padding: 8px 12px;
-            cursor: pointer;
-        }
-        
-        .off-button {
-            background-color: rgb(220, 53, 69);
+            border-radius: 3px;
+            margin-right: 5px;
+            margin-top: 5px;
             color: white;
-            border-radius: 6px;
-            border: none;
-            padding: 8px 12px;
-            cursor: pointer;
+            padding: 5px 8px;
         }
 
-        .app-container {
-            display: flex;
-            justify-content: end;
+        .signup-button {
+            padding: 5px 8px;
+            color: white;
+            background-color: rgb(0, 123, 255);
+            border: none;
+            border-radius: 3px;
+        }
+
+        .hide-button {
+            margin-left: 6px;
+        }
+
+        .passwordInput {
+            margin-top: 5px;
         }
     </style>
 </head>
@@ -40,21 +43,43 @@
     <script type="text/babel">
 
         function App() {
-            const [isButtonOn, setIsButtonOn] = React.useState(true);
+            const [showPassword, setShowPassword] = React.useState(true);
 
-            function setButton() {
-                setIsButtonOn(isButtonOn ? false : true);
-                // console.log(isButtonOn)
+            function buttonStatus() {
+                setShowPassword(showPassword ? false : true);
             }
+
             return (
-                <div
-                    className="app-container">
+                <>
+                    <p>Hello, welcome to my website</p>
+                    <div>
+                        <input
+                            type="email"
+                            placeholder="Email"
+                        />
+                    </div>
+                    <div
+                        className="passwordInput">
+                        <input
+                            type={showPassword ? "password" : "text"}
+                            placeholder="Password"
+                        />
+                        <button
+                            className="hide-button"
+                            onClick={buttonStatus}
+                        >
+                            {showPassword ? "Show" : "Hide"}
+                        </button>
+                    </div>
                     <button
-                        className={isButtonOn ? "on-button" : "off-button"}
-                        onClick={setButton}
-                    >{isButtonOn ? 'ON' : 'OFF'}
+                        className="login-button" >
+                        Login
                     </button>
-                </div>
+                    <button
+                        className="signup-button">
+                        Sign up
+                    </button>
+                </>
             );
         }
 
