@@ -13,6 +13,15 @@
             cursor: pointer;
         }
 
+        .off-button {
+            background-color: red;
+            color: white;
+            border-radius: 6px;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
         .app-container {
             display: flex;
             justify-content: end;
@@ -31,12 +40,19 @@
     <script type="text/babel">
 
         function App() {
+            const [isButtonOn, setIsButtonOn] = React.useState(true);
+
+            function setButton() {
+                setIsButtonOn(isButtonOn ? false : true);
+                // console.log(isButtonOn)
+            }
             return (
                 <div
                     className="app-container">
                     <button
-                        className="on-button"
-                    >ON
+                        className={isButtonOn ? "on-button" : "off-button"}
+                        onClick={setButton}
+                    >{isButtonOn ? 'ON' : 'OFF'}
                     </button>
                 </div>
             );
