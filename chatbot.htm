@@ -122,14 +122,14 @@
 
                 setInputText('');
 
-                setChatMessages([
-                    ...newChatMessages,
-                    {
-                        message: 'Loading...',
-                        sender: 'robot',
-                        id: crypto.randomUUID()
-                    }
-                ]);
+                // setChatMessages([
+                //     ...newChatMessages,
+                //     {
+                //         message: 'Loading...',
+                //         sender: 'robot',
+                //         id: crypto.randomUUID()
+                //     }
+                // ]);
 
                 const response = await Chatbot.getResponseAsync(inputText);
 
@@ -227,28 +227,7 @@
         }
 
         function App() {
-            const [chatMessages, setChatMessages] = React.useState([
-                {
-                    message: "hello chatbot",
-                    sender: "user",
-                    id: "id1"
-                },
-                {
-                    message: "Hello! How can i help you",
-                    sender: "robot",
-                    id: "id2"
-                },
-                {
-                    message: "can you get me today's date?",
-                    sender: "user",
-                    id: "id3"
-                },
-                {
-                    message: "Today is September 12",
-                    sender: "robot",
-                    id: "id4"
-                },
-            ]);
+            const [chatMessages, setChatMessages] = React.useState([]);
 
             return (
                 <div className="app-container">

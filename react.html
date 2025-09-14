@@ -3,6 +3,21 @@
 
 <head>
     <title>React Basics</title>
+    <style>
+        .on-button {
+            background-color: rgb(25, 135, 84);
+            color: white;
+            border-radius: 6px;
+            border: none;
+            padding: 8px 12px;
+            cursor: pointer;
+        }
+
+        .app-container {
+            display: flex;
+            justify-content: end;
+        }
+    </style>
 </head>
 
 <body>
@@ -16,37 +31,14 @@
     <script type="text/babel">
 
         function App() {
-            const [saveInput, setSaveInput] = React.useState('');
-
-            function saveInputText(event) {
-                setSaveInput(event.target.value);
-            }
-
-            function resetInput() {
-                setSaveInput('');
-            }
-
-            function exampleBtn() {
-                setSaveInput('Alice')
-            }
-
             return (
-                <>
-                    <input
-                        placeholder="Type a name here"
-                        onChange={saveInputText}
-                        value={saveInput}
-                    />
+                <div
+                    className="app-container">
                     <button
-                        onClick={resetInput} >
-                        Reset
+                        className="on-button"
+                    >ON
                     </button>
-                    <button
-                        onClick={exampleBtn} >
-                        Example
-                    </button>
-                    <p>Hello {saveInput}</p>
-                </>
+                </div>
             );
         }
 
