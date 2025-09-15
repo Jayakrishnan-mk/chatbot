@@ -3,8 +3,6 @@
 
 <head>
     <title>React Basics</title>
-    <style>
-    </style>
 </head>
 
 <body>
@@ -15,24 +13,48 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
 
-    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
-
     <script type="text/babel">
 
         function App() {
-            const time = dayjs().format('HH:mm:ss');
-            // console.log('time', time)
+            const [count, setCount] = React.useState(0);
+            const buttonRef = React.useRef(null);
 
-            const [currentTime, setCurrentTime] = React.useState(time);
+            function increaseCount() {
+                setCount(count + 1)
+            }
+            function resetButton() {
+                setCount(0)
+            }
 
-            React.useEffect(() => {
+            function autoClick() {
                 setInterval(() => {
-                    setCurrentTime(dayjs().format('HH:mm:ss'));
-                    console.log('run code')
+                    const buttonElem = buttonRef.current;
+                    if (buttonElem) {
+                        buttonElem.click()
+                    }
                 }, 1000)
-            }, []);
+            }
 
-            return;
+            return (
+                <>
+                    <button
+                        onClick={increaseCount}
+                        ref={buttonRef}
+                    >
+                        Clicked {count} {count === 1 ? 'time' : 'times'}
+                    </button>
+                    <button
+                        onClick={resetButton}
+                    >
+                        Reset
+                    </button>
+                    <button
+                        onClick={autoClick}
+                    >
+                        Auto Click
+                    </button>
+                </>
+            );
         }
 
         const container = document.querySelector('.js-container');
