@@ -3,7 +3,6 @@ import UserProfileImage from "../assets/lebloom.png";
 import "./ChatMessage.css";
 
 export function ChatMessage({ message, sender }) {
-  console.log("ussssss", UserProfileImage);
   return (
     <div
       className={
