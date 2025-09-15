@@ -29,6 +29,10 @@
     margin-bottom: 20px;
 }
 
+.chat-time {
+    font-size: 13px;
+}
+
 .loading-image {
     height: 40px;
     margin: -15px;
