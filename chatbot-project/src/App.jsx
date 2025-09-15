@@ -6,7 +6,8 @@ import { ChatMessages } from "./components/ChatMessages";
 import { Chatbot } from "supersimpledev";
 
 function App() {
-  const [chatMessages, setChatMessages] = useState([]);
+  const localChats = JSON.parse(localStorage.getItem("messages"));
+  const [chatMessages, setChatMessages] = useState(localChats || []);
 
   useEffect(() => {
     Chatbot.addResponses({
@@ -14,6 +15,10 @@ function App() {
       babba: "babbabba",
     });
   }, []);
+
+  useEffect(() => {
+    localStorage.setItem("messages", JSON.stringify(chatMessages));
+  }, [chatMessages]);
 
   return (
     <div className="app-container">
