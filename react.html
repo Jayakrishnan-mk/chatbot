@@ -4,31 +4,6 @@
 <head>
     <title>React Basics</title>
     <style>
-        .login-button {
-            background-color: rgb(0, 123, 255);
-            border: none;
-            border-radius: 3px;
-            margin-right: 5px;
-            margin-top: 5px;
-            color: white;
-            padding: 5px 8px;
-        }
-
-        .signup-button {
-            padding: 5px 8px;
-            color: white;
-            background-color: rgb(0, 123, 255);
-            border: none;
-            border-radius: 3px;
-        }
-
-        .hide-button {
-            margin-left: 6px;
-        }
-
-        .passwordInput {
-            margin-top: 5px;
-        }
     </style>
 </head>
 
@@ -40,47 +15,24 @@
 
     <script src="https://unpkg.com/supersimpledev/babel.js"></script>
 
+    <script src="https://unpkg.com/supersimpledev/dayjs.js"></script>
+
     <script type="text/babel">
 
         function App() {
-            const [showPassword, setShowPassword] = React.useState(true);
+            const time = dayjs().format('HH:mm:ss');
+            // console.log('time', time)
 
-            function buttonStatus() {
-                setShowPassword(showPassword ? false : true);
-            }
+            const [currentTime, setCurrentTime] = React.useState(time);
 
-            return (
-                <>
-                    <p>Hello, welcome to my website</p>
-                    <div>
-                        <input
-                            type="email"
-                            placeholder="Email"
-                        />
-                    </div>
-                    <div
-                        className="passwordInput">
-                        <input
-                            type={showPassword ? "password" : "text"}
-                            placeholder="Password"
-                        />
-                        <button
-                            className="hide-button"
-                            onClick={buttonStatus}
-                        >
-                            {showPassword ? "Show" : "Hide"}
-                        </button>
-                    </div>
-                    <button
-                        className="login-button" >
-                        Login
-                    </button>
-                    <button
-                        className="signup-button">
-                        Sign up
-                    </button>
-                </>
-            );
+            React.useEffect(() => {
+                setInterval(() => {
+                    setCurrentTime(dayjs().format('HH:mm:ss'));
+                    console.log('run code')
+                }, 1000)
+            }, []);
+
+            return;
         }
 
         const container = document.querySelector('.js-container');
