@@ -10,13 +10,13 @@ function useAutoScroll(dependencies) {
     if (containerElem) {
       containerElem.scrollTop = containerElem.scrollHeight;
     }
-  }, dependencies);
+  }, [dependencies]);
 
   return containerRef;
 }
 
 export function ChatMessages({ chatMessages }) {
-  const chatMessagesRef = useAutoScroll([chatMessages]);
+  const chatMessagesRef = useAutoScroll(chatMessages);
   return (
     <div className="chat-messages-container" ref={chatMessagesRef}>
       {chatMessages.map((cm, key) => {
