@@ -3,6 +3,30 @@
 
 <head>
     <title>React Basics</title>
+    <style>
+        body {
+            margin-top: 0;
+            margin-bottom: 0;
+        }
+
+        button {
+            background-color: rgb(25, 135, 84);
+            color: white;
+            border: none;
+            padding: 5px 10px;
+            margin-left: 8px;
+        }
+
+        .app-container {
+            display: flex;
+            justify-content: center;
+            height: 100vh;
+            background-color: rgb(222, 222, 222);
+            margin-top: auto;
+            margin-bottom: auto;
+            align-items: center;
+        }
+    </style>
 </head>
 
 <body>
@@ -36,7 +60,7 @@
             }
 
             return (
-                <>
+                <div className="app-container">
                     <button
                         onClick={increaseCount}
                         ref={buttonRef}
@@ -53,7 +77,7 @@
                     >
                         Auto Click
                     </button>
-                </>
+                </div>
             );
         }
 
