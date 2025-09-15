@@ -78,6 +78,11 @@
             overflow: scroll;
             scrollbar-width: none;
         }
+
+        .welcome-message {
+            color: rgb(120, 120, 120);
+            text-align: center;
+        }
     </style>
 </head>
 
@@ -231,6 +236,13 @@
 
             return (
                 <div className="app-container">
+                    {chatMessages.length === 0 &&
+                        <p
+                            className="welcome-message"
+                        >
+                            Welcome to the chatbot project! Send a message using the textbox below.
+                        </p>
+                    }
                     <ChatMessages
                         chatMessages={chatMessages}
                     />
