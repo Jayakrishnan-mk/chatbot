@@ -5,6 +5,8 @@
   "type": "module",
   "scripts": {
     "dev": "vite",
+    "mktest": "mkdir test",
+    "rmtest": "rmdir test",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview"
