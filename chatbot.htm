@@ -83,6 +83,11 @@
             color: rgb(120, 120, 120);
             text-align: center;
         }
+
+        .loading-image {
+            height: 40px;
+            margin: -15px;
+        }
     </style>
 </head>
 
@@ -127,14 +132,18 @@
 
                 setInputText('');
 
-                // setChatMessages([
-                //     ...newChatMessages,
-                //     {
-                //         message: 'Loading...',
-                //         sender: 'robot',
-                //         id: crypto.randomUUID()
-                //     }
-                // ]);
+                setChatMessages([
+                    ...newChatMessages,
+                    {
+                        message:
+                            <img
+                                src="loading-spinner.gif"
+                                className="loading-image"
+                            />,
+                        sender: 'robot',
+                        id: crypto.randomUUID()
+                    }
+                ]);
 
                 const response = await Chatbot.getResponseAsync(inputText);
 
